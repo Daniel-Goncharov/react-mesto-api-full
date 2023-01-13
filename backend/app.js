@@ -13,6 +13,7 @@ const routes = require('./routes/index');
 
 const { PORT = 3000 } = process.env;
 const app = express();
+mongoose.set('strictQuery', false);
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
 });
