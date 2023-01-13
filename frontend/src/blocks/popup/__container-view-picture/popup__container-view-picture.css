@@ -1,0 +1,4 @@
+.popup__container-view-picture {
+  position: relative;
+  z-index: 2;
+}

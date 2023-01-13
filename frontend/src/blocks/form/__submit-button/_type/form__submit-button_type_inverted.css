@@ -1,0 +1,11 @@
+.form__submit-button_type_inverted {
+  background: #fff;
+  color: #000;
+  margin-top: 181px;
+}
+
+@media screen and (max-width: 540px) {
+  .form__submit-button_type_inverted {
+    margin-top: 138px;
+  }
+}

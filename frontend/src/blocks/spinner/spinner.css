@@ -1,0 +1,27 @@
+.spinner {
+  left: calc(50% - 10vmin);
+  position: fixed;
+  top: 50%;
+
+  display: inline-block;
+  width: 10vmin;
+  height: 10vmin;
+  border: 1vmin solid rgba(255, 255, 255, .3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin .8s ease-in-out infinite;
+  -webkit-animation: spin .8s ease-in-out infinite;
+}
+
+
+@keyframes spin {
+  to {
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+      -webkit-transform: rotate(360deg);
+  }
+}

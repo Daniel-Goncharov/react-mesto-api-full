@@ -1,0 +1,11 @@
+.profile__name-container {
+  display: flex;
+  align-items: baseline;
+}
+
+@media screen and (max-width: 685px) {
+  .profile__name-container {
+    padding-top: 1px;
+    padding-left: 28px;
+  }
+}

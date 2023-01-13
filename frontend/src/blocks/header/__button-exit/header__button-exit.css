@@ -1,0 +1,11 @@
+.header__button-exit  {
+  margin: 8px 0 0 18px;
+  color: #A9A9A9;
+  text-align: end;
+}
+
+@media screen and (max-width: 619px) {
+  .header__button-exit {
+    margin-right: 26px;
+  }
+}

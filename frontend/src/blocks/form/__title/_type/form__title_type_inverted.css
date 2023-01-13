@@ -1,0 +1,12 @@
+.form__title_type_inverted {
+  text-align: center;
+  color: #fff;
+  margin: 0 auto 50px;
+}
+
+@media screen and (max-width: 510px) {
+  .form__title_type_inverted {
+    width: 260px;
+    margin-bottom: 40px;
+  }
+}
