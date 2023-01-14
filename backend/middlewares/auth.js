@@ -16,14 +16,11 @@ module.exports = (req, res, next) => {
   try {
     payload = jwt.verify(token, JWT_SECRET);
   } catch (err) {
-    if (err.name === 'JsonWebTokenError') {
-      return next(
-        new UnauthorizedError({
-          message: 'Нужно авторизоваться.',
-        }),
-      );
-    }
-    return next(err);
+    return next(
+      new UnauthorizedError({
+        message: 'Нужно авторизоваться.',
+      }),
+    );
   }
   req.user = payload;
   next();
