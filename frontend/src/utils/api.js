@@ -89,7 +89,7 @@ class Api {
 
 // создаем класс апи для работы с данными от сервера
 export default new Api({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.daniilg.nomoredomains.rocks',
   headers: {
     'content-Type': 'application/json',
   },
