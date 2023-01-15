@@ -136,9 +136,9 @@ export default function App() {
       .then(([initialUserInfo, initialCards]) => {
         setCurrentUser(initialUserInfo);
         setCards(initialCards);
-        setIsLoading(false)
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
+      .finally(()=> setIsLoading(false))
     }
   }, [isLoggedIn]);
 
@@ -149,7 +149,7 @@ export default function App() {
         .checkToken(jwt)
         .then((res) => {
           setIsLoggedIn(true);
-          setEmail(res.data.email);
+          setEmail(res.email);
           history.push("/");
         })
         .catch((err) => {

@@ -46,7 +46,7 @@ export default function Entrance({
         <form className="form form_type_entrance" onSubmit={handleSubmit} noValidate>
           <input
             onChange={handleChange}
-            className={`form__input form__input_type_inverted ${error.email ? "form__input_type_error" : ""}`}
+            className={`form__input form__input_type_inverted`}
             placeholder="Email"
             name="email"
             type="email"
@@ -56,7 +56,7 @@ export default function Entrance({
           <span className={`form__error placeName-input-error ${error.email ? "form__error_visible" : ""}`}>{error.email}</span>
           <input
             onChange={handleChange}
-            className={`form__input form__input_type_inverted ${error.password ? "form__input_type_error" : ""}`}
+            className={`form__input form__input_type_inverted`}
             placeholder="Пароль"
             name="password"
             type="password"

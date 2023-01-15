@@ -41,7 +41,7 @@ export default function AddPlacePopup({ isOpen, onAddPlace, isAddPlacePopupLoadi
       isDisabled={!isFormValid}
     >
       <input
-        className={`form__input form__input_data_place-url ${error.name ? "form__input_type_error" : ""}`}
+        className={`form__input form__input_data_place-url`}
         id="placeName-input"
         type="text"
         name="name"
@@ -55,7 +55,7 @@ export default function AddPlacePopup({ isOpen, onAddPlace, isAddPlacePopupLoadi
       />
       <span className={`form__error placeName-input-error ${error.name ? "form__error_visible" : ""}`} >{error.name}</span>
       <input
-        className={`form__input form__input_data_place-url ${error.link ? "form__input_type_error" : ""}`}
+        className={`form__input form__input_data_place-url`}
         id="placeUrl-input"
         type="url"
         name="link"

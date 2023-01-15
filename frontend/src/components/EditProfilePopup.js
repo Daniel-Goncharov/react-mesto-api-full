@@ -41,7 +41,7 @@ export default function EditProfilePopup({ isOpen, onUpdateUser, isEditProfilePo
       isDisabled={!isFormValid}
     >
       <input
-        className={`form__input form__input_data_name ${error.name ? "form__input_type_error" : ""}`} 
+        className={`form__input form__input_data_name`} 
         id="name-imput"
         type="text"
         name="name"
@@ -55,7 +55,7 @@ export default function EditProfilePopup({ isOpen, onUpdateUser, isEditProfilePo
       />
       <span className={`form__error ${error.name ? "form__error_visible" : ""}`} >{error.name}</span>
       <input
-        className={`form__input form__input_data_job ${error.about ? "form__input_type_error" : ""}`}
+        className={`form__input form__input_data_job`}
         id="job-imput"
         type="text"
         name="about"

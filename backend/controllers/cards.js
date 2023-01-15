@@ -17,7 +17,9 @@ module.exports.getCards = (req, res, next) => {
 // Создать карточку
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
-  Card.create({ name, link, owner: req.user })
+  const owner = req.user._id;
+  Card.create({ name, link, owner })
+    .then((card) => Card.populate(card, 'owner'))
     .then((card) => {
       res.send(card);
     })
