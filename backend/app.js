@@ -12,11 +12,12 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const routes = require('./routes/index');
 
+const { DB = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 const { PORT = 3000 } = process.env;
 const app = express();
 app.use(cors());
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
+mongoose.connect(DB, {
   useNewUrlParser: true,
 });
 
@@ -33,6 +34,11 @@ app.use(helmet()); // мидлвер для для установки security-�
 app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger); // подключаем логгер запросов
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.use(routes);
 app.use(errorLogger); // подключаем логгер ошибок
 
