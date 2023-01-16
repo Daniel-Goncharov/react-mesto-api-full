@@ -7,6 +7,7 @@ const NotFoundError = require('../errors/NotFoundError');
 // Запрос всех карточек с сервера
 module.exports.getCards = (req, res, next) => {
   Card.find({})
+    .sort({ createdAt: -1 })
     .populate(['owner', 'likes'])
     .then((cards) => {
       res.send(cards);

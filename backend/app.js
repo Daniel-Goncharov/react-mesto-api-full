@@ -29,11 +29,11 @@ const limiter = rateLimit({
 });
 
 // Middlewares
+app.use(requestLogger); // подключаем логгер запросов
 app.use(limiter); // мидлвер ограничивающий кол-во запросов. Защита от DoS-атак.
 app.use(helmet()); // мидлвер для для установки security-заголовков
 app.use(express.json());
 app.use(cookieParser());
-app.use(requestLogger); // подключаем логгер запросов
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');

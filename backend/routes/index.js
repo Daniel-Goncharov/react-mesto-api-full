@@ -18,7 +18,7 @@ router.use(auth);
 router.use('/users', userRouter);
 router.use('/cards', cardRouter);
 
-router.all('*', express.json(), (req, res, next) => {
+router.all('*', (req, res, next) => {
   next(new NotFoundError({ message: 'Запрашиваемая страница не найдена' }));
 });
 
