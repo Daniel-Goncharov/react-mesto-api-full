@@ -2,11 +2,11 @@
 require('dotenv').config();
 const express = require('express');
 const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const cors = require('cors');
+const { limiter } = require('./middlewares/limiter');
 const { DB } = require('./config');
 const { errorHandler } = require('./middlewares/errorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -19,13 +19,6 @@ app.use(cors());
 mongoose.set('strictQuery', false);
 mongoose.connect(DB, {
   useNewUrlParser: true,
-});
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 минут
-  max: 100, // можно совершить максимум 100 запросов с одного IP за 15 минут
-  standardHeaders: true, // Возвращает информацию об ограничении скорости в заголовках `RateLimit-*`
-  legacyHeaders: false, // Отключает заголовки `X-RateLimit-*`
 });
 
 // Middlewares
