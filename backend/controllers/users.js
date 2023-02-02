@@ -3,11 +3,11 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const { CREATED_CODE } = require('../utils/constants');
+const { JWT_SECRET } = require('../config');
 const BadRequestError = require('../errors/BadRequestError');
 const ConflictError = require('../errors/ConflictError');
 const NotFoundError = require('../errors/NotFoundError');
 
-const { JWT_SECRET = 'dev-secret' } = process.env;
 // Запрос всех пользователей с сервера
 module.exports.getUsers = (req, res, next) => {
   User.find({})

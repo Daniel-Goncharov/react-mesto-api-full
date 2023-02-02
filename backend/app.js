@@ -7,13 +7,13 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const cors = require('cors');
+const { DB } = require('./config');
 const { errorHandler } = require('./middlewares/errorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const routes = require('./routes/index');
 
-const { DB = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
-const { PORT = 3000 } = process.env;
+const { PORT = 3005 } = process.env;
 const app = express();
 app.use(cors());
 mongoose.set('strictQuery', false);
@@ -34,11 +34,6 @@ app.use(limiter); // мидлвер ограничивающий кол-во з�
 app.use(helmet()); // мидлвер для для установки security-заголовков
 app.use(express.json());
 app.use(cookieParser());
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
 app.use(routes);
 app.use(errorLogger); // подключаем логгер ошибок
 
